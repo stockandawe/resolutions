@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @resolutions = @user.resolutions
+    @all_resolutions = Resolution.all
   end
 
   def update

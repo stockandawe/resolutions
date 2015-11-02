@@ -1,2 +1,5 @@
-$("<%= escape_javascript(render @resolution) %>").prependTo("#myResolutions");
 $("#resolution_title").val("");
+if ($("#emptyState").length > 0) {
+  $("#emptyState").remove();
+}
+$("<%= escape_javascript(render @resolution) %>").prependTo("#myResolutions");

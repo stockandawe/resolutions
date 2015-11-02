@@ -10,17 +10,19 @@
               = f.text_field :title, class: "form-control"
             .form-group
               = f.submit "Add A Resolution", class: "btn btn-info btn-block"
-          hr.soften
           .list-group
-            - if @resolutions.present?
-              div(id="myResolutions")
+            div(id="myResolutions")
+              - if @resolutions.present?
                 = render @resolutions
-            - else
-              .lead
-                | Add resolutions and get inspired by the community
+              - else
+                .lead(id="emptyState")
+                  | Add resolutions and get inspired by the community
 
     .col-md-8.col-md-pull-4
       .list-group
-        - User.all.each do |user|
-          .list-group-item #{user.email}
+        - @all_resolutions.each do |r|
+          .list-group-item
+            | On #{r.created_at.to_s(:short)} by #{r.user.email}:
+            h4
+              | #{r.title}
         
