@@ -17,7 +17,6 @@ end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pg'
-gem 'pundit'
 gem 'sendgrid'
 gem 'slim-rails'
 group :development do
