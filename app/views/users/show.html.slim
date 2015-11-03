@@ -19,8 +19,4 @@
                   | Add resolutions and get inspired by the community
 
     .col-md-8.col-md-pull-4
-      .list-group
-        - @events.each do |event|
-          .list-group-item
-            = render partial: event.action, locals: {event: event}
-        
+      = render "events/activity_feed"        

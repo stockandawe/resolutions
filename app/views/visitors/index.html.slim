@@ -1,0 +1,22 @@
+.container
+  hr
+  .row
+    .col-md-4.col-md-push-8
+      .panel
+        .panel-body
+          h3 Welcome to Resolutions
+          hr.soften
+          p
+            | Resolutions helps you make your resolutions, reminds 
+            | to make progress on them, and provides you encouragement to pursue your 
+            | goals through a community of supporters.
+          p 
+            | Join the community and reach your goals!
+          p
+            br
+            = link_to 'Track your resolutions', new_user_registration_path, class: "btn btn-primary"
+               
+    .col-md-8.col-md-pull-4
+      h4 Recent resolutions
+      br
+      = render "events/activity_feed"        
