@@ -1,0 +1,4 @@
+.list-group
+  - @events.each do |event|
+    .list-group-item
+      = render partial: "events/activities/#{event.action}", locals: {event: event}
