@@ -1,4 +1,5 @@
 .list-group
   - @events.each do |event|
-    .list-group-item
-      = render partial: "events/activities/#{event.action}", locals: {event: event}
+    - if lookup_context.template_exists?(event.action, "events/activities", true)
+      .list-group-item
+        = render partial: "events/activities/#{event.action}", locals: {event: event}
