@@ -20,9 +20,7 @@
 
     .col-md-8.col-md-pull-4
       .list-group
-        - @all_resolutions.each do |r|
+        - @events.each do |event|
           .list-group-item
-            | On #{r.created_at.to_s(:short)} by #{r.user.email}:
-            h4
-              | #{r.title}
+            = render partial: event.action, locals: {event: event}
         
