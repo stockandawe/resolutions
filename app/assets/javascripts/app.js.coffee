@@ -8,7 +8,7 @@ app.controller 'myResolutionsCtrl', ['$scope', '$resource', '$rootScope', ($scop
   $scope.addResolution = ->
     Resolution.save(resolution: $scope.pendingResolution)
     $rootScope.$broadcast("newEvent")
-    $scope.resolutions.push($scope.pendingResolution)
+    $scope.resolutions.unshift($scope.pendingResolution)
     $scope.pendingResolution = ""
 ]
 

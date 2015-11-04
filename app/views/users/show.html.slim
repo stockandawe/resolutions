@@ -18,7 +18,7 @@
 
     .col-md-8.col-md-pull-4(ng-controller="myEventsCtrl")
       .list-group
-        .list-group-item(ng-repeat="e in events")
+        .list-group-item(ng-repeat="e in events | orderBy:'-created_at'")
           | On {{e.created_at | date: shortdate}}, {{e.email}} made a resolution:
           h4
             | {{e.title}}
