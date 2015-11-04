@@ -1,8 +1,13 @@
 class ResolutionsController < ApplicationController
   before_filter :authenticate_user!
-  
+
+  def index
+    @resolutions = current_user.resolutions
+    render json: @resolutions
+  end
+
   def create
-    @resolution = Resolution.new(secure_params)
+    @resolution = current_user.resolutions.new(secure_params)
 
     respond_to do |format|
       if @resolution.save
@@ -20,7 +25,7 @@ class ResolutionsController < ApplicationController
   private
 
   def secure_params
-    params.require(:resolution).permit(:user_id, :title)
+    params.require(:resolution).permit(:title)
   end
 
 end
