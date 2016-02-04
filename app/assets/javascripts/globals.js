@@ -1,4 +1,4 @@
-RESOLUTIONS = {
+var RESOLUTIONS = {
   react: {
     components: {},
     registerComponent: function(name, component) {
