@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @resolutions = @user.resolutions
+    @resolutions = @user.resolutions.order("created_at DESC")
     @events = Event.all.order("created_at DESC")
   end
 
