@@ -19,11 +19,11 @@ describe('example test', function() {
         <ExampleReactComponent />
     );
 
-    var h1 = TestUtils.findRenderedDOMComponentWithTag(
-        exampleComponent, 'h1'
+    var h3 = TestUtils.findRenderedDOMComponentWithTag(
+        exampleComponent, 'h3'
     );
 
-    expect(h1.getDOMNode().textContent).toEqual("This is an example component");
+    expect(h3.getDOMNode().textContent).toEqual("Welcome to Resolutions");
   });
 
 });
