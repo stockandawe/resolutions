@@ -1,50 +1,53 @@
 Resolutions
-================
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
-
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
-
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+===
 
 Ruby on Rails
--------------
+---
 
 This application requires:
 
 - Ruby 2.2.3
-- Rails 4.2.4
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+- Rails 4.2.5
 
 Getting Started
----------------
+---
 
-Documentation and Support
--------------------------
+```
+bundle
+bundle exec rake db:migrate
+npm install
+```
 
-Issues
--------------
+Running tests
+---
 
-Similar Projects
-----------------
+__Javascript__:
 
-Contributing
-------------
+JS tests live in `/spec/js` and karma will run any file that ends with `_spec.js`. karma-cli is needed as a global install in order to run tests locally:
 
-Credits
--------
+```
+npm install -g karma-cli
+```
+karma watches for js files and runs tests whenever they change.
+```
+karma start
+```
 
-License
--------
+Single run of tests:
+```
+karma start --single-run
+```
+
+
+Deploying to Heroku
+---
+
+Heroku server must use the nodejs buildpack (+ the default ruby buildpack) in order to compile js assets using browserify (and install npm dependencies).
+
+To add the nodejs buildpack to a heroku instance:
+```
+heroku buildpacks:add --index 1 heroku/nodejs
+```
+__npm__ dependencies must be installed in `dependencies` (not `devDependencies`) of package.json file in order to the precompilation process to pick it up.
+
+[More on multiple buildpacks](https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app)
